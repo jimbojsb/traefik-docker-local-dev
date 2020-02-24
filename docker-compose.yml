@@ -1,0 +1,21 @@
+---
+version: "3.7"
+services:
+  traefik:
+    container_name: mydomain.dev #change this line
+    environment:
+      DO_AUTH_TOKEN: xxxxxxx #change this line
+    restart: always
+    image: traefik
+    networks:
+      - mydomain.dev #change this line
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./traefik:/etc/traefik:ro"
+networks:
+  mydomain.dev: #change this line
+    name: mydomain.dev #change this line

@@ -1,0 +1,18 @@
+[entryPoints]
+  [entryPoints.http]
+    address = ":80"
+  [entryPoints.https]
+    address = ":443"
+[providers]
+  [providers.docker]
+    exposedByDefault = false
+    network = "mydomain.dev" #change this line
+[api]
+  dashboard = true
+  insecure = true
+[certificatesResolvers.default.acme]
+  email = "me@mydomain.com" #change this line
+  storage = "acme.json"
+  [certificatesResolvers.default.acme.dnsChallenge]
+    provider = "digitalocean"
+    delayBeforeCheck = 0

@@ -6,7 +6,7 @@
 [providers]
   [providers.docker]
     exposedByDefault = false
-    network = "mydomain.dev" #change this line
+    network = "mydomain"
 [api]
   dashboard = true
   insecure = true
